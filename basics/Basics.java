@@ -13,11 +13,11 @@ public class Basics {
         // salmon season code
         Calendar cal = Calendar.getInstance();
         String month = new SimpleDateFormat("MMMM").format(cal.getTime());
-        System.out.println(isItSamlonSeason(month));
+        System.out.println(isItSamlonSeason(month + "\n"));
        
        // pluralize code
         String answer = pluralize("cat", 4);
-        System.out.println("this is pluralize " + answer);
+        System.out.println("this is pluralize " + answer + "\n");
 
         //heads/tails
         flipNHeads(2);
@@ -53,22 +53,30 @@ public class Basics {
             countTries++;
 
             double randomNum = 0 + Math.random() * (1 - 0);
-            System.out.println("this is rand num " + randomNum);
             if(randomNum > .5){
+                System.out.println("heads");
                 countHeads++;
             }
             else{
+                System.out.println("tails");
                 countHeads = 0;
             }
         }
-        System.out.println("It took " + countTries + " to get " + countHeads +" heads.");
+        System.out.println("It took " + countTries + " tries to get " + countHeads +" heads.\n" );
     }
 
     public static void clock(){
-        while(true){
-            LocalDateTime now = LocalDateTime.now();
-            String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            System.out.println(time);
+        try{
+            while(true){
+                LocalDateTime now = LocalDateTime.now();
+                String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                System.out.println(time);
+                Thread.sleep(1000);
+            }
         }
+        catch(InterruptedException ex){
+            System.out.println("Did not work");
+        } 
+
     }
 }
