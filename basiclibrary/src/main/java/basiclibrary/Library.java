@@ -28,8 +28,16 @@ public class Library {
         }
         return false;
     }
+    public static int average(int[] arr){
+        int sum = 0;
+        for(int i = 0; i<arr.length;i++){
+            sum += arr[i];
+        }
+        int average = sum/arr.length;
+        return average;
+    }
 
-    public static int containsDuplicates(int[][] arr){
+    public static int lowAverages(int[][] arr){
         int low = 0;
         for(int i = 0; i<arr.length;i++){
             int currentSum = 0;

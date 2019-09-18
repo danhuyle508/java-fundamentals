@@ -38,7 +38,15 @@ public class LibraryTest {
         );
     }
     @Test
-    public void testAverages(){
+    public void testAverage(){
+        assertEquals(
+          "this should give back an average.",
+          15,
+          Library.average(new int[]{5,10,15,20,25})
+        );
+    }
+    @Test
+    public void testLowAverages(){
         int[][] weeklyMonthTemperatures = {
                 {66, 64, 58, 65, 71, 57, 60},
                 {57, 65, 65, 70, 72, 65, 51},
@@ -49,7 +57,7 @@ public class LibraryTest {
         assertEquals(
                 "this should return 57 which is the lowest.",
                 answer,
-                Library.containsDuplicates(weeklyMonthTemperatures)
+                Library.lowAverages(weeklyMonthTemperatures)
         );
     }
 }
