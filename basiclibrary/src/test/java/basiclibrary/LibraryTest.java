@@ -60,4 +60,27 @@ public class LibraryTest {
                 Library.lowAverages(weeklyMonthTemperatures)
         );
     }
+     @Test
+    public void testAnalyze(){
+        int[][] weeklyMonthTemperatures = {
+                {66, 61},
+                {70,70},
+                {62,64},
+                {65, 67,68,69}
+        };
+        assertEquals(
+           "This should pass.",
+           "Never saw temperature: 63\n",
+                Library.analyze(weeklyMonthTemperatures)
+        );
+    }
+    @Test
+    public void testTally() {
+        String[] test = new String[]{"bush", "bush", "dude", "bush", "dude"};
+        assertEquals(
+                "This should pass with bush.",
+                "bush",
+                Library.tally(test)
+        );
+    }
 }

@@ -3,6 +3,9 @@
  */
 package basiclibrary;
 import java.util.Random;
+import java.util.HashMap;
+import java.util.HashSet;
+
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -53,5 +56,57 @@ public class Library {
             }
         }
         return low;
+    }
+    public static String analyze(int[][] arr){
+        HashSet<Integer> unique = new HashSet<Integer>();
+        int min = 0;
+        int max = 0;
+        String answer = "";
+        //get all unique values into hashset
+        for(int i = 0; i<arr.length;i++){
+            for(int j = 0; j<arr[i].length;j++){
+                if(!unique.contains(arr[i][j])){
+                    unique.add(arr[i][j]);
+                }
+                if(min == 0 && max == 0 ){
+                    min = arr[i][j];
+                    max = arr[i][j];
+                }
+                if(min > arr[i][j]){
+                    min = arr[i][j];
+                }
+                if(max < arr[i][j]){
+                    max = arr[i][j];
+                }
+            }
+        }
+        for(int i = min; i <max;i++){
+            if(!unique.contains(i)){
+                  answer +=("Never saw temperature: " + i + "\n");
+            }
+        }
+        return answer;
+    }
+
+    public static String tally(String[] votes){
+        HashMap<String, Integer> answer = new HashMap<>();
+        String winner = "";
+        int max = 0;
+        for(String name : votes){
+            if(!answer.containsKey(name)){
+                answer.put(name, 1);
+            }
+            else{
+                int value = answer.get(name);
+                answer.put(name,value++);
+            }
+        }
+        for(String name : answer.keySet()){
+            if(answer.get(name) > max){
+                winner = name;
+                max = answer.get(name);
+            }
+        }
+        return winner;
     }
 }
